@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="本地待办清单:工作、学习、旅行三大板块,按周管理任务。">
+  <title>我的待办清单</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="app">
+    <header class="header">
+      <h1>我的待办清单</h1>
+      <p class="sub">数据仅保存在本机浏览器中</p>
+    </header>
+
+    <nav class="tabs" id="tabs">
+      <button class="tab active" data-cat="work" id="tab-work">💼 工作</button>
+      <button class="tab" data-cat="study" id="tab-study">📚 学习</button>
+      <button class="tab" data-cat="travel" id="tab-travel">✈️ 旅行</button>
+    </nav>
+
+    <form class="card form" id="task-form" autocomplete="off">
+      <input type="text" id="f-title" placeholder="任务名称" required maxlength="100">
+      <label>开始 <input type="date" id="f-start" required></label>
+      <label>结束 <input type="date" id="f-end" required></label>
+      <label>紧急程度
+        <select id="f-urgency">
+          <option value="high">🔴 紧急</option>
+          <option value="mid" selected>🟡 一般</option>
+          <option value="low">🟢 不急</option>
+        </select>
+      </label>
+      <textarea id="f-notes" placeholder="补充信息(可选)" maxlength="500" rows="2"></textarea>
+      <button type="submit" class="btn" id="f-submit">添加任务</button>
+    </form>
+
+    <section id="list" aria-live="polite"></section>
+  </main>
+  <script src="script.js"></script>
+</body>
+</html>
